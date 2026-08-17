@@ -111,13 +111,22 @@ The final output will include a one-page business case written for non-technical
 
 ## Dataset
 
-**Dataset:** Telco / SaaS Customer Churn Dataset
+**Dataset:** Telco Customer Churn Dataset
 
-**Source:** To be added after dataset selection and validation.
+**Raw file:** `WA_Fn-UseC_-Telco-Customer-Churn.csv`
 
-**Raw file:** To be added to `data/raw/`
+**Records:** 7,043 customers
 
-The raw dataset will be preserved separately from the cleaned analytical data.
+**Features:** 20 input/customer attributes + 1 target variable (`Churn`)
+
+The dataset contains customer demographics, subscription tenure, subscribed
+services, contract information, payment method, monthly charges, total
+charges, and churn status.
+
+The raw dataset is stored unchanged in:
+
+```text
+data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
 
 ---
 
@@ -126,8 +135,28 @@ The raw dataset will be preserved separately from the cleaned analytical data.
 The final data dictionary will be completed after inspecting the actual dataset. No column definitions will be assumed before the raw data is validated.
 
 | Column | Description | Data Type | Business Meaning |
-| ------ | ----------- | --------- | ----------------- |
-| TBD    | TBD         | TBD       | TBD                |
+|---|---|---|---|
+| `customerID` | Unique customer identifier | Object | Identifies an individual customer |
+| `gender` | Customer gender | Object | Customer demographic attribute |
+| `SeniorCitizen` | Senior citizen indicator | Integer | Indicates whether the customer is classified as a senior citizen |
+| `Partner` | Whether the customer has a partner | Object | Household/customer demographic attribute |
+| `Dependents` | Whether the customer has dependents | Object | Household/customer demographic attribute |
+| `tenure` | Number of months the customer has stayed with the company | Integer | Measures customer relationship duration |
+| `PhoneService` | Whether the customer has phone service | Object | Indicates subscription to phone service |
+| `MultipleLines` | Whether the customer has multiple phone lines | Object | Indicates phone-line subscription type |
+| `InternetService` | Type of internet service | Object | Indicates internet service category |
+| `OnlineSecurity` | Whether online security service is subscribed | Object | Additional service adoption |
+| `OnlineBackup` | Whether online backup service is subscribed | Object | Additional service adoption |
+| `DeviceProtection` | Whether device protection service is subscribed | Object | Additional service adoption |
+| `TechSupport` | Whether technical support service is subscribed | Object | Additional service adoption |
+| `StreamingTV` | Whether streaming TV service is subscribed | Object | Additional service adoption |
+| `StreamingMovies` | Whether streaming movies service is subscribed | Object | Additional service adoption |
+| `Contract` | Customer contract type | Object | Indicates subscription commitment level |
+| `PaperlessBilling` | Whether paperless billing is enabled | Object | Billing preference |
+| `PaymentMethod` | Customer payment method | Object | Payment behavior/payment channel |
+| `MonthlyCharges` | Monthly amount charged to the customer | Float | Recurring monthly revenue associated with the customer |
+| `TotalCharges` | Total amount charged to the customer | Object | Cumulative customer charges; requires type validation |
+| `Churn` | Whether the customer has left the company | Object | Target variable for churn analysis and prediction ||
 
 ---
 
